@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>For Dikky - 1998</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=EB+Garamond:wght@500;700&family=Old+Standard+TT:wght@700&display=swap');
+    * { box-sizing: border-box; }
+    body { background: #e8dfd0; font-family: 'Special Elite', cursive; text-align: center; padding: 0; margin: 0; color: #2a1e17; }
+.page { background: #fdf8f0; background-image: linear-gradient(rgba(210,180,140,0.1) 1px, transparent 1px); background-size: 100% 28px; padding: 50px 30px; width: 100%; min-height: 100vh; display: none; position: relative; overflow: hidden; }
+    @media (min-width: 769px) { body { padding: 40px; }.page { border: 1px solid #8b5a3c; box-shadow: 0 10px 40px rgba(42,30,23,0.3); max-width: 850px; margin: 0 auto; } }
+.page.active { display: block; animation: fadeIn 0.8s; }
+    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+    h1, h2 { font-family: 'EB Garamond', serif; color: #5c3d2e; font-weight: 700; }
+    h1 { font-size: 3em; text-transform: uppercase; }
+.stamp { display: inline-block; border: 3px dashed #8b5a3c; padding: 8px 15px; transform: rotate(-5deg); color: #8b5a3c; }
+.btn { background: #fdf8f0; color: #5c3d2e; border: 2px solid #8b5a3c; padding: 12px 30px; font-family: 'Special Elite', cursive; font-size: 1em; cursor: pointer; margin: 20px 10px; box-shadow: 3px 3px 0 #8b5a3c; }
+.newspaper { background: #f5f1e6; border: 3px double #8b5a3c; padding: 30px 20px; max-width: 700px; margin: 40px auto; font-family: 'Old Standard TT', serif; }
+.newspaper h2 { font-size: 2.5em; border-bottom: 3px solid #5c3d2e; padding-bottom: 10px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
+.newspaper.headline { font-size: 1.8em; font-weight: 700; margin: 20px 0; }
+.newspaper.article { text-align: left; line-height: 1.6; font-size: 1.1em; columns: 2; column-gap: 20px; }
+    @media (max-width: 600px) {.newspaper.article {columns: 1;}}
+.vintage-env { max-width: 650px; margin: 40px auto; background: #f5ecd8; border: 2px solid #8b5a3c; padding: 40px; }
+.letter-text { text-align: left; line-height: 1.8; font-size: 1.1em; white-space: pre-wrap; }
+.cursor { display: none; }
+.roll-section { margin: 60px 0; }
+.roll-section h3 { font-family: 'EB Garamond', serif; font-size: 2em; color: #5c3d2e; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
+.polaroid-container { max-width: 100%; margin: 0 auto 20px auto; overflow-x: hidden; border: 3px solid #8b5a3c; background: #f5ecd8; padding: 20px 0; box-shadow: inset 0 0 20px rgba(0,0,0,0.1); }
+.polaroid-track { display: flex; gap: 25px; width: max-content; }
+.polaroid-track:hover { animation-play-state: paused; }
+.track1 { animation: scroll 30s linear infinite; }
+.track2 { animation: scroll 20s linear infinite; }
+.track3 { animation: scroll 25s linear infinite; }
+.track4 { animation: scroll 18s linear infinite; }
+    @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.polaroid { background: white; padding: 15px 15px 60px 15px; width: 260px; flex-shrink: 0; transform: rotate(-2deg); box-shadow: 5px 5px 15px rgba(0,0,0,0.2); transition: transform 0.3s; }
+.polaroid:hover { transform: rotate(0deg) scale(1.05); }
+.polaroid:nth-child(even) { transform: rotate(2deg); }
+.polaroid img { width: 100%; height: 240px; object-fit: cover; filter: sepia(0.3); }
+.polaroid p { margin-top: 10px; font-size: 0.9em; }
+.coupon { border: 2px dashed #8b5a3c; padding: 20px; background: #f5ecd8; width: 250px; display: inline-block; margin: 15px; }
+.scratch-vintage { max-width: 400px; margin: 40px auto; position: relative; height: 200px; border: 3px solid #8b5a3c; overflow: hidden; touch-action: none; background: #8b5a3c; }
+.scratch-reveal { position: absolute; width: 100%; height: 100%; background: #5c3d2e; color: #f5ecd8; display: flex; align-items: center; justify-content: center; font-family: 'EB Garamond', serif; font-size: 2em; z-index: 1; pointer-events: none; }
+.scratch-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; background: transparent; cursor: crosshair; }
+.scratch-hint { font-size: 12px; color: #5c3d2e; margin-top: 10px; }
+.tape-player { background: #d4c5a9; border: 4px solid #8b5a3c; border-radius: 15px; padding: 30px; max-width: 500px; margin: 40px auto; }
+.video-frame { background: black; padding: 10px; margin: 10px 0; border-radius: 10px; }
+.video-frame video { width: 100%; display: block; border-radius: 8px; }
+.locket-container { perspective: 1000px; width: 200px; height: 200px; margin: 40px auto; cursor: pointer; }
+.locket { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; }
+.locket-half { position: absolute; width: 100px; height: 200px; background: radial-gradient(circle at 30% 30%, #ffd700, #d4af37 50%, #b8860b 100%); border: 3px solid #8b5a3c; box-shadow: inset 0 0 20px rgba(255,255,255,0.3), 0 10px 20px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; font-family: 'EB Garamond', serif; font-size: 70px; font-weight: 700; color: #5c3d2e; backface-visibility: hidden; transition: transform 1.2s cubic-bezier(.68,-0.55,.27,1.55); }
+.left { border-radius: 100px 0 0 100px; left: 0; transform-origin: right center; }
+.right { border-radius: 0 100px 100px 0; right: 0; transform-origin: left center; }
+.locket.open.left { transform: rotateY(-120deg); }
+.locket.open.right { transform: rotateY(120deg); }
+.locket-heart { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40px; color: #8b4a2a; z-index: -1; }
+.final-message { display: none; font-size: 1.3em; line-height: 2; margin-top: 30px; animation: fadeInUp 1s; }
+    @keyframes fadeInUp { from {opacity: 0; transform: translateY(20px);} to {opacity: 1; transform: translateY(0);} }
+.lock-box { border: 2px solid #8b5a3c; padding: 30px; max-width: 400px; margin: 40px auto; background: #f5ecd8; }
+.lock-box input { padding: 12px; border: 2px solid #5c3d2e; width: 80%; font-family: 'Special Elite', cursive; background: #fdf8f0; }
+    @keyframes fall { to { transform: translateY(100vh) rotate(360deg); opacity: 0; } }
+  </style>
+</head>
+<body>
+
+  <div class="page active" id="page1">
+    <h1>Happy Birthday Dikky</h1>
+    <p class="stamp">CLASSIFIED</p>
+    <div class="lock-box">
+      <input type="password" id="password" placeholder="secret word">
+      <br><button class="btn" onclick="checkPassword()">Open</button>
+      <p id="errorMsg" style="color:#8b5a3c;"></p>
+    </div>
+  </div>
+
+  <div class="page" id="page2">
+    <h2>Dear chinnu,</h2>
+    <div class="vintage-env">
+      <div class="letter-text">July 28, 2026
+Dear chinnu,
+   I'm glad and happy being a girlfriend of you, i love every single minute with you, I'm so in love with you, I want you to be the one i love, the one i cry with, the one i bath with, the one i want kids with, the one i want to share my happiness with, you're growing so fast, I love growing old with you, you're truly a miracle, I never thought i would find such a green flag boyfriend, I'm so happy that i found you, i hope no one steals you from me, I want all your love and I want all your attention, all mine.
+And you know what else is mine, turning 18 is not just a number or not just a passing year, you're an adult now. Lots of responsibilities, lots of pressure, but at the end of the day, you're still my cute baby
+I love you to the moon and the back, i miss you.
+                                                                                                                    ITLU
+                                                                                                                   CHITTI.</div>
+    </div>
+    <button class="btn" onclick="showPage(3)">Next Page →</button>
+  </div>
+
+  <div class="page" id="page3">
+    <div class="newspaper">
+      <h2>The Daily Love</h2>
+      <p>July 28, 2026 | Special Birthday Edition</p>
+      <div class="headline">BREAKING: LOCAL BOY CHINNU TURNS 18</div>
+      <div class="article">
+        In shocking news today, sources confirm that Dikky, also known as "Chinnu", has officially become an adult.
+        <br><br>Witnesses report seeing a local girlfriend, known only as "Chitti", become extremely emotional.
+        <br><br>"He's still my cute baby," Chitti was overheard saying.
+        <br><br>Experts say the world is not ready for 18-year-old Chinnu. Green flags detected.
+      </div>
+    </div>
+    <button class="btn" onclick="showPage(4)">Next →</button>
+  </div>
+
+  <div class="page" id="page4">
+    <h2>My Favorite Versions of You</h2>
+    <p class="stamp">ALL OF YOU</p>
+
+    <div class="roll-section"><h3>The Cute One</h3>
+      <div class="polaroid-container"><div class="polaroid-track track1">
+        <div class="polaroid"><img src="https://i.ibb.co/tMRjWpc1/IMG-20260726-WA0004.jpg"><p>Cheeks so soft 🥺</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/RGW79sBx/IMG-20260726-WA0005.jpg"><p>my cute monkey</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/0jGwz1yR/IMG-20260726-WA0006.jpg"><p>pookie </p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/x4B0yXV/IMG-20260726-WA0003.jpg"><p>sad but cute</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/tMRjWpc1/IMG-20260726-WA0004.jpg"><p>Cheeks so soft 🥺</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/RGW79sBx/IMG-20260726-WA0005.jpg"><p>my cute monkey</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/0jGwz1yR/IMG-20260726-WA0006.jpg"><p>pookie</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/x4B0yXV/IMG-20260726-WA0003.jpg"><p>sad but cute</p></div>
+      </div></div>
+    </div>
+
+    <div class="roll-section"><h3> The Hot One</h3>
+      <div class="polaroid-container"><div class="polaroid-track track2">
+        <div class="polaroid"><img src="https://i.ibb.co/yn7wJht7/IMG-20260726-WA0014.jpg"><p>Glasses + chinnu = dangerous</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/0jkX58JC/IMG-20260726-WA0013.jpg"><p>Airpods and attitude</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/xd0vsjs/IMG-20260726-WA0011.jpg"><p>3am call vibes</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/YBHDZ3vm/IMG-20260726-WA0012.jpg"><p>Stop. Too much.</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/yn7wJht7/IMG-20260726-WA0014.jpg"><p>Glasses + chinnu = dangerous</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/0jkX58JC/IMG-20260726-WA0013.jpg"><p>Airpods and attitude</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/xd0vsjs/IMG-20260726-WA0011.jpg"><p>3am call vibes</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/YBHDZ3vm/IMG-20260726-WA0012.jpg"><p>Stop. Too much.</p></div>
+      </div></div>
+    </div>
+
+    <div class="roll-section"><h3>The Handsome One</h3>
+      <div class="polaroid-container"><div class="polaroid-track track3">
+        <div class="polaroid"><img src="https://i.ibb.co/FbXBdYBW/IMG-20260727-WA0000.jpg"><p>Dapper chinnu</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/84KzYks5/IMG-20260727-WA0003.jpg"><p>My green flag</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/Q7D6B8Xt/IMG-20260727-WA0002.jpg"><p>So proud of you</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/7dVcQqjM/IMG-20260727-WA0001.jpg"><p>My man</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/FbXBdYBW/IMG-20260727-WA0000.jpg"><p>Dapper chinnu</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/84KzYks5/IMG-20260727-WA0003.jpg"><p>My green flag</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/Q7D6B8Xt/IMG-20260727-WA0002.jpg"><p>So proud of you</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/7dVcQqjM/IMG-20260727-WA0001.jpg"><p>My man</p></div>
+      </div></div>
+    </div>
+
+    <div class="roll-section"><h3> The Funny One</h3>
+      <div class="polaroid-container"><div class="polaroid-track track4">
+        <div class="polaroid"><img src="https://i.ibb.co/bgn2Nfq2/IMG-20260727-WA0004.jpg"><p>Chinnu moments</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/JRncDTjc/IMG-20260727-WA0007.jpg"><p>Silly you</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/qMc4B3nW/IMG-20260727-WA0006.jpg"><p>My clown</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/nqKpxB34/IMG-20260727-WA0005.jpg"><p>I love this side</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/bgn2Nfq2/IMG-20260727-WA0004.jpg"><p>Chinnu moments</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/JRncDTjc/IMG-20260727-WA0007.jpg"><p>Silly you</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/qMc4B3nW/IMG-20260727-WA0006.jpg"><p>My clown</p></div>
+        <div class="polaroid"><img src="https://i.ibb.co/nqKpxB34/IMG-20260727-WA0005.jpg"><p>I love this side</p></div>
+      </div></div>
+    </div>
+
+    <button class="btn" onclick="showPage(5)">Next →</button>
+  </div>
+
+  <div class="page" id="page5"><h2>Redeem Anytime</h2>
+    <div class="coupon"><h3>1 Free Hug</h3><p>Expires: Never</p></div>
+    <div class="coupon"><h3>1 Free Kiss</h3><p>Expires: Never</p></div>
+    <div class="coupon"><h3>Date Night</h3><p>Your choice</p></div>
+    <div class="coupon"><h3>Unlimited Cuddles</h3><p>Valid forever</p></div>
+    <button class="btn" onclick="showPage(6)">Next →</button>
+  </div>
+
+  <div class="page" id="page6"><h2>P.S.</h2><p>Scratch this to see something</p>
+    <div class="scratch-vintage"><div class="scratch-reveal"> congrats, you won 20 free nudes</div><canvas class="scratch-canvas" id="scratchCanvas"></canvas></div>
+    <p class="scratch-hint">Drag your finger to scratch</p>
+    <button class="btn" onclick="showPage(7)">Next →</button>
+  </div>
+
+  <!-- PAGE 7 - YOUR VIDEO -->
+  <div class="page" id="page7">
+    <h2>For You, Chinnu 💌</h2>
+    <div class="tape-player">
+      <p style="margin-bottom:20px; font-size:18px;">I made this for you</p>
+      <div class="video-frame">
+        <video controls playsinline>
+          <source src="https://files.catbox.moe/2n9vok.mp4" type="video/mp4">
+          Your browser does not support video.
+        </video>
+      </div>
+      <p style="font-size: 14px; margin-top:15px;">Happy 18th my love ♡</p>
+    </div>
+    <button class="btn" onclick="showPage(8)">Next →</button>
+  </div>
+
+  <!-- PAGE 8 - FINAL LOCKET -->
+  <div class="page" id="page8">
+    <h2>My Promise to You</h2>
+    <p class="stamp">OPEN THE LOCKET</p>
+    <p>Click to open my heart</p>
+    <div class="locket-container" onclick="openLocket()">
+      <div class="locket">
+        <div class="locket-half left">C</div>
+        <div class="locket-half right">C</div>
+        <div class="locket-heart">♡</div>
+      </div>
+    </div>
+    <div class="final-message" id="finalMsg">
+      <p>I promise to love you</p>
+      <p>On your good days and bad days</p>
+      <p>When you're 18 and when you're 80</p>
+      <p>I choose you. Always.</p>
+      <p style="margin-top: 40px;"><b>- Chitti</b></p>
+    </div>
+    <button class="btn" onclick="createConfetti()">Gold Confetti</button>
+  </div>
+
+  <script>
+    const correctPassword = "chinnupapa";
+    let scratchInitialized = false;
+
+    function checkPassword() {
+      if(document.getElementById("password").value.toLowerCase().trim() === correctPassword) { showPage(2); }
+      else { document.getElementById("errorMsg").innerText = "Wrong password"; }
+    }
+
+    function showPage(n) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page' + n).classList.add('active');
+      if(n === 6 &&!scratchInitialized) { setTimeout(initScratch, 300); scratchInitialized = true; }
+      window.scrollTo(0,0);
+    }
+
+    function createConfetti() {
+      for(let i = 0; i < 50; i++) {
+        let c = document.createElement('div');
+        c.style.cssText = `position:fixed;width:6px;height:6px;background:#d4af37;top:-10px;left:${Math.random()*100}%;animation:fall 3s linear forwards;z-index:999`;
+        document.body.appendChild(c); setTimeout(() => c.remove(), 3000);
+      }
+    }
+
+    function openLocket() {
+      document.querySelector('.locket').classList.add('open');
+      document.getElementById('finalMsg').style.display = 'block';
+      createConfetti();
+    }
+
+    function initScratch() {
+      const canvas = document.getElementById('scratchCanvas');
+      const ctx = canvas.getContext('2d');
+      const container = canvas.parentElement;
+      canvas.width = container.offsetWidth;
+      canvas.height = container.offsetHeight;
+      ctx.fillStyle = '#8b5a3c';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.lineWidth = 50;
+      ctx.lineCap = 'round';
+      let drawing = false;
+      function getPos(e) {
+        const rect = canvas.getBoundingClientRect();
+        const x = e.touches? e.touches[0].clientX : e.clientX;
+        const y = e.touches? e.touches[0].clientY : e.clientY;
+        return { x: x - rect.left, y: y - rect.top };
+      }
+      function startDraw(e) { e.preventDefault(); drawing = true; }
+      function stopDraw() { drawing = false; }
+      function draw(e) {
+        if(!drawing) return;
+        e.preventDefault();
+        const pos = getPos(e);
+        ctx.beginPath();
+        ctx.arc(pos.x, pos.y, 25, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      canvas.addEventListener('mousedown', startDraw);
+      canvas.addEventListener('mouseup', stopDraw);
+      canvas.addEventListener('mouseleave', stopDraw);
+      canvas.addEventListener('mousemove', draw);
+      canvas.addEventListener('touchstart', startDraw, {passive: false});
+      canvas.addEventListener('touchend', stopDraw);
+      canvas.addEventListener('touchmove', draw, {passive: false});
+    }
+  </script>
+</body>
+</html>
